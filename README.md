@@ -1,6 +1,18 @@
+##### I was asked to implement a BACKEND API to manage the orders of a certain restaurant.
+
+#### Server Functionality:
+○ The API supports the following functionality:
+■ Save a new order
+■ Receive all orders from the last day.
+■ Can update an order.
+■ Can delete an order.
+
+I chose to use NodeJS
+
+
 # NodeJS
 
-NodejS is open-source, cross platforms(more than 1 OS), JavaScript runtime environment, that executes JS code outside the web browser.
+ NodejS is open-source, cross platforms(more than 1 OS), JavaScript runtime environment, that executes JS code outside the web browser.
 
 - Written in C, C++, JavaSscript.
 
