@@ -17,14 +17,22 @@ module.exports = {
       });
   },
 
-getOrderFromLastDay: (req,res) => {
-let date = new Date()
-Order.collection.find({ //query today up to tonight
-    created_at: {
-        $gte:new ISODate("2022-09-20T18:35:12Z"), 
-        $lt:new ISODate("2022-09-21T18:35:12Z")
-    }
-})
+  getOrderFromLastDay: (req,res) => {
+    let date = new Date()
+    Order.find({ //query today up to tonight
+        time: {
+            $gte:new Date("2022-09-20T18:35:12Z"), 
+            $lt:new Date("2022-09-21T18:35:12Z")
+        }
+    }).then((orders)=>{
+      res.status(200).json({
+        orders,
+      });
+    }).catch((error) => {
+      res.status(500).json({
+        error,
+      });
+    })
 },
 
   // getOrderFromLastDay: (req,res) => {
