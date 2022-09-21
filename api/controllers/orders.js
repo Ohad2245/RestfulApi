@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Order = require("../models/order");
- 
+
+
 module.exports = {
   getAllOrders: (req, res) => {
     Order.find()
@@ -15,6 +16,23 @@ module.exports = {
         });
       });
   },
+
+getOrderFromLastDay: (req,res) => {
+let date = new Date()
+Order.collection.find({ //query today up to tonight
+    created_at: {
+        $gte:new ISODate("2022-09-20T18:35:12Z"), 
+        $lt:new ISODate("2022-09-21T18:35:12Z")
+    }
+})
+},
+
+  // getOrderFromLastDay: (req,res) => {
+  //   console.log(req.body)
+  //   Order.collection.find
+  //   ({"createdDate":{$gte:new ISODate("yyyy-mm-ddThh:mm:ssZ"),
+  //   $lte:new ISODate("yyyy-mm-ddThh:mm:ssZ")}})
+  // },
 
   newOrder: (req, res) => {
     console.log(req.body)
@@ -32,13 +50,6 @@ module.exports = {
     //     console.log("Multiple Orders inserted to Collection");
     //   }
     // });
-  },
-
-  getOrderFromLastDay: (req,res) => {
-    console.log(req.body)
-    Order.collection.find
-    ({"createdDate":{$gte:new ISODate("yyyy-mm-ddThh:mm:ssZ"),
-    $lte:new ISODate("yyyy-mm-ddThh:mm:ssZ")}})
   },
 
   // newOrder:(orders) =>{
