@@ -13,8 +13,7 @@ mongoose.connection.on('connected', () => {
     console.log('MongoDB Connected!');
 })
 
-const articlesRoutes = require("./api/routes/articles");
-const categoriesRoutes = require("./api/routes/categories");
+const ordersRoutes = require("./api/routes/orders");
 
 app.use(morgan("dev"));
 
@@ -38,8 +37,7 @@ app.use((req, res, next) => {
 
 
 // Routes
-app.use('/articles', articlesRoutes);
-app.use('/categories', categoriesRoutes);
+app.use('/orders', ordersRoutes);
 
 app.use((req,res,next)=>{
     const error = new Error('Not Found');
