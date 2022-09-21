@@ -2,9 +2,13 @@
 
 #### Server Functionality:
 ○ The API supports the following functionality:
+<br>
 ■ Save a new order
+<br>
 ■ Receive all orders from the last day.
+<br>
 ■ Can update an order.
+<br>
 ■ Can delete an order.
 
 I chose to use NodeJS
