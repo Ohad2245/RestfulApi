@@ -3,7 +3,7 @@
 #### Server Functionality:
 ○ The API supports the following functionality:
 <br>
-■ Save a new order
+■ Save a new order.
 <br>
 ■ Receive all orders from the last day.
 <br>
@@ -13,7 +13,7 @@
 
 I chose to use NodeJS.
 
-##### The above code is ready for production
+##### The above code is ready for production!
 
 # NodeJS
 
