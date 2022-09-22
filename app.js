@@ -1,6 +1,7 @@
 // The Express application sits on this page.
 const express = require("express");
 const app = express();
+// External package - it throws a log every time someone goes to our server, it shows where they went
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 
@@ -10,13 +11,14 @@ mongoose.connect(`mongodb://localhost:27017/my-app`,
     useUnifiedTopology:true
 });
 
-// connect to Mongo
+//Connect to Mongo
 mongoose.connection.on('connected', () => {
     console.log('MongoDB Connected!');
 })
 
 const ordersRoutes = require("./api/routes/orders");
 
+// Morgan
 app.use(morgan("dev"));
 
 app.use(express.json());
