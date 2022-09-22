@@ -2,16 +2,6 @@ const mongoose = require("mongoose");
 const Order = require("../models/order");
 
 module.exports = {
-  //   newOrder: (req, res) => {
-  //     console.log(req.body)
-  //     // Function call
-  //     Order.insertMany(req.body).then(function(){
-  //       res.send("Data Inserted")  // Success
-  //     }).catch(function(error){
-  //       console.log(error)      // Failure
-  //     });
-  // },
-
   newOrder: (req, res) => {
     try {
       console.log(req.body);
@@ -27,31 +17,16 @@ module.exports = {
     }
   },
 
-  //   getOrderFromLastDay: (req,res) => {
-  //     let date = new Date()
-  //     Order.find({ //query today up to tonight
-  //         time: {
-  //             $gte:new Date("2022-09-20T18:35:12Z"),
-  //             $lt:new Date("2022-09-21T18:35:12Z")
-  //         }
-  //     }).then((orders)=>{
-  //       res.status(200).json({
-  //         orders,
-  //       });
-  //     }).catch((error) => {
-  //       res.status(500).json({
-  //         error,
-  //       });
-  //     })
-  // },
   getOrderFromLastDay: (req, res) => {
     try {
-      const date = new Date();
+      var start = new Date();
+      start.setUTCHours(0,0,0,0);
+      start.toUTCString();
       Order.find({
         //query today up to tonight
         time: {
-          $gt: new Date(date.getDate() - 1), // yesterday
-          $lt: new Date(date), // To Now day
+          $gt: new Date(start.toUTCString()), // The beginning of the day.
+          $lt: new Date(), // To Now.
         },
       })
         .then((orders) => {

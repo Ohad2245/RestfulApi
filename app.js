@@ -12,9 +12,9 @@ mongoose.connect(`mongodb://localhost:27017/my-app`,
 });
 
 //Connect to Mongo
-mongoose.connection.on('connected', () => {
-    console.log('MongoDB Connected!');
-})
+// mongoose.connection.on('connected', () => {
+//     console.log('MongoDB Connected!');
+// })
 
 const ordersRoutes = require("./api/routes/orders");
 
